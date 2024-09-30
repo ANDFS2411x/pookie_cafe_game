@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pookiecafe</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <div class="game-container">
+        <h1 class="animate__animated animate__bounceInDown">Pookie Cafetería</h1>
+        <div class="cafe-area">
+            <div class="coffee-machine animate__animated animate__fadeInLeft">
+                <h3>Máquina de Café</h3>
+                <div class="coffee-cup">
+                    <div class="coffee" id="coffee"></div>
+                </div>
+                <button onclick="addIngredient('cafe')">Añadir Café</button>
+                <button onclick="addIngredient('leche')">Añadir Leche</button>
+                <button onclick="addIngredient('azucar')">Añadir Azúcar</button>
+                <button onclick="serveCoffee()">Servir Café</button>
+            </div>
+            <div class="ingredients animate__animated animate__fadeInUp">
+                <h3>Ingredientes</h3>
+                <p>Café: <span id="cafeCount">5</span></p>
+                <p>Leche: <span id="lecheCount">5</span></p>
+                <p>Azúcar: <span id="azucarCount">5</span></p>
+                <button onclick="restockIngredients()">Recargar todo</button>
+            </div>
+            <div class="orders animate__animated animate__fadeInRight">
+                <h3>Pedido Actual</h3>
+                <p id="currentOrder">Esperando pedido...</p>
+                <p class="recipe-hint" id="recipeHint"></p>
+                <p>Tiempo restante: <span id="orderTimer">30</span>s</p>
+            </div>
+        </div>
+        <div class="cat animate__animated animate__wobble">
+            <div class="cat-ear left"></div>
+            <div class="cat-ear right"></div>
+            <div class="cat-face">
+                <div class="cat-eye"></div>
+                <div class="cat-eye"></div>
+                <div class="cat-nose"></div>
+                <div class="cat-mouth"></div>
+            </div>
+        </div>
+        <p class="message animate__animated animate__pulse" id="message"></p>
+        <p class="score">Puntuación: <span id="score">0</span></p>
+        <p class="level">Nivel: <span id="level">1</span></p>
+        <div class="love-meter">
+            <div class="love-fill" id="loveMeter"></div>
+        </div>
+        <div class="achievements" id="achievements"></div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

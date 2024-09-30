@@ -1,0 +1,279 @@
+:root {
+    --primary-color: #FF9AAE;
+    --secondary-color: #FFD1DC;
+    --background-color: #FFF0F5;
+    --text-color: #4A4A4A;
+    --cup-color: #F0E4D7;
+    --coffee-color: #4B2F2F;
+    --accent-color: #FFB6C1;
+}
+
+body {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    background: linear-gradient(135deg, var(--background-color), var(--secondary-color));
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--text-color);
+}
+
+.game-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(255, 182, 193, 0.3);
+    text-align: center;
+    max-width: 95%;
+    width: 800px;
+    margin: 20px auto;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 2.8em;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.cafe-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.coffee-machine, .ingredients, .orders {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    padding: 20px;
+    width: calc(33.33% - 20px);
+    margin: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .coffee-machine, .ingredients, .orders {
+        width: calc(100% - 20px);
+    }
+}
+
+.coffee-machine:hover, .ingredients:hover, .orders:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.coffee-cup {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(to right, var(--cup-color), #E6D0BA);
+    border-radius: 0 0 50% 50%;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.coffee {
+    width: 100%;
+    height: 0;
+    background: linear-gradient(to bottom, var(--coffee-color), #8B4513);
+    position: absolute;
+    bottom: 0;
+    transition: height 0.5s;
+}
+
+.cat {
+    width: 120px;
+    height: 120px;
+    background-color: #EAE1DC;
+    border-radius: 50%;
+    position: relative;
+    margin: 20px auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    animation: bounce 2s infinite;
+    overflow: hidden;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.cat-ear {
+    position: absolute;
+    top: -15px;
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 40px solid #C4AEA3;
+}
+
+.cat-ear.left {
+    left: 10px;
+    transform: rotate(-30deg);
+}
+
+.cat-ear.right {
+    right: 10px;
+    transform: rotate(30deg);
+}
+
+.cat-face {
+    position: relative;
+    top: 30px;
+}
+
+.cat-eye {
+    width: 15px;
+    height: 15px;
+    background-color: rgb(19, 9, 9);
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 15px;
+    animation: blink 3s infinite;
+}
+
+@keyframes blink {
+    0%, 90%, 100% { transform: scaleY(1); }
+    95% { transform: scaleY(0.1); }
+}
+
+.cat-nose {
+    width: 12px;
+    height: 8px;
+    background-color: #FFA07A;
+    border-radius: 50%;
+    margin: 10px auto 5px;
+}
+
+.cat-mouth {
+    width: 30px;
+    height: 10px;
+    border-radius: 0 0 100px 100px;
+    border: 2px solid #8B4513;
+    border-top: none;
+    margin: 0 auto;
+}
+
+button {
+    margin: 5px;
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+}
+
+button:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.message {
+    margin-top: 20px;
+    font-weight: bold;
+    color: var(--primary-color);
+    min-height: 50px;
+    font-size: 1.2em;
+    font-style: italic;
+}
+
+.score, .level {
+    font-size: 1.5em;
+    color: var(--primary-color);
+    margin-top: 20px;
+}
+
+.love-meter {
+    width: 100%;
+    height: 25px;
+    background-color: var(--secondary-color);
+    border-radius: 12.5px;
+    margin-top: 15px;
+    overflow: hidden;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+}
+
+.love-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    transition: width 0.5s;
+    border-radius: 12.5px;
+}
+
+.recipe-hint {
+    font-style: italic;
+    color: #8B4513;
+    margin-top: 10px;
+}
+
+.achievements {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.achievement {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    background-color: #FFF0F5;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: #4A4A4A;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.achievement.unlocked {
+    background-color: var(--accent-color);
+    animation: unlock 0.5s ease;
+}
+
+@keyframes unlock {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@keyframes drop {
+    0% { transform: translateY(-10px); opacity: 0; }
+    100% { transform: translateY(50px); opacity: 1; }
+}
+
+@media (max-width: 600px) {
+    .game-container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2.2em;
+    }
+
+    .coffee-machine, .ingredients, .orders {
+        padding: 15px;
+    }
+
+    button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
